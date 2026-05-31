@@ -1,112 +1,4 @@
-
-import java.util.Scanner;
-
-public class Main {
-
-    public static void main(String[] args) {
-
-        Scanner ler = new Scanner(System.in);
-
-        System.out.println("======================================");
-        System.out.println(" TECNOLOGIA NA LIMPEZA URBANA ");
-        System.out.println(" Sistema Inteligente de Monitoramento ");
-        System.out.println(" Java + Oracle ");
-        System.out.println("======================================");
-
-        System.out.print("Digite a localizacao da lixeira: ");
-        String localizacao = ler.nextLine();
-
-        System.out.print("Digite o responsavel pela coleta: ");
-        String responsavel = ler.nextLine();
-
-        System.out.print("Digite a data do monitoramento: ");
-        String data = ler.nextLine();
-
-        System.out.print("Digite o numero da rota: ");
-        int rota = ler.nextInt();
-
-        System.out.print("Digite o nivel de lixo (0 a 100): ");
-        int nivelLixo = ler.nextInt();
-
-        ler.nextLine();
-
-        System.out.print("Digite o nome do evento: ");
-        String evento = ler.nextLine();
-
-        System.out.print("Digite a descricao do evento: ");
-        String descricao = ler.nextLine();
-
-        String status;
-
-        if (nivelLixo >= 80) {
-            status = "CHEIA - Coleta urgente necessaria";
-        } else if (nivelLixo >= 50) {
-            status = "PARCIAL - Monitoramento recomendado";
-        } else {
-            status = "DISPONIVEL - Sem necessidade imediata";
-        }
-
-        System.out.println();
-        System.out.println("======================================");
-        System.out.println(" RELATORIO FINAL ");
-        System.out.println("======================================");
-
-        System.out.println("Projeto: Tecnologia na Limpeza Urbana");
-        System.out.println("Desenvolvedor: Revellys dos Santos Silva");
-        System.out.println("Tecnologias Utilizadas:");
-        System.out.println("- Java");
-        System.out.println("- Oracle");
-        System.out.println("- Programacao Orientada a Objetos");
-        System.out.println("- MVC");
-        System.out.println("- Banco de Dados");
-
-        System.out.println();
-        System.out.println("DADOS DA LIXEIRA");
-        System.out.println("Localizacao: " + localizacao);
-        System.out.println("Responsavel: " + responsavel);
-        System.out.println("Data: " + data);
-        System.out.println("Rota: " + rota);
-        System.out.println("Nivel de lixo: " + nivelLixo + "%");
-        System.out.println("Status: " + status);
-
-        System.out.println();
-        System.out.println("EVENTO REGISTRADO");
-        System.out.println("Evento: " + evento);
-        System.out.println("Descricao: " + descricao);
-
-        System.out.println();
-        System.out.println("MODELO DO BANCO DE DADOS");
-
-        System.out.println("Tabela: LIXEIRA");
-        System.out.println("id");
-        System.out.println("localizacao");
-        System.out.println("nivel_lixo");
-        System.out.println("status");
-        System.out.println("responsavel_coleta");
-
-        System.out.println();
-
-        System.out.println("Tabela: EVENTO");
-        System.out.println("id");
-        System.out.println("nome");
-        System.out.println("descricao");
-        System.out.println("id_lixeira");
-
-        System.out.println();
-        System.out.println("Sistema executado com sucesso.");
-        System.out.println("Projeto concluido.");
-        System.out.println("======================================");
-
-        ler.close();
-    }
-}
-
-  
-
-
-
--- ==========================================
--- PROJETO: TECNOLOGIA NA LIMPEZA URBANA
+PROJETO: TECNOLOGIA NA LIMPEZA URBANA
 -- Java + POO + MVC + Oracle Database
 -- ==========================================
 
@@ -232,3 +124,114 @@ SELECT
 FROM evento e
 LEFT JOIN lixeira l
 ON e.id_lixeira = l.id;
+
+programação funcional simples e rodando.
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner ler = new Scanner(System.in);
+
+        System.out.println("======================================");
+        System.out.println(" TECNOLOGIA NA LIMPEZA URBANA ");
+        System.out.println(" Sistema Inteligente de Monitoramento ");
+        System.out.println(" Java + Oracle ");
+        System.out.println("======================================");
+
+        System.out.print("Digite a localizacao da lixeira: ");
+        String localizacao = ler.nextLine();
+
+        System.out.print("Digite o responsavel pela coleta: ");
+        String responsavel = ler.nextLine();
+
+        System.out.print("Digite a data do monitoramento: ");
+        String data = ler.nextLine();
+
+        System.out.print("Digite o numero da rota: ");
+        int rota = ler.nextInt();
+
+        System.out.print("Digite o nivel de lixo (0 a 100): ");
+        int nivelLixo = ler.nextInt();
+
+        ler.nextLine();
+
+        System.out.print("Digite o nome do evento: ");
+        String evento = ler.nextLine();
+
+        System.out.print("Digite a descricao do evento: ");
+        String descricao = ler.nextLine();
+
+        String status;
+
+        if (nivelLixo >= 80) {
+            status = "CHEIA - Coleta urgente necessaria";
+        } else if (nivelLixo >= 50) {
+            status = "PARCIAL - Monitoramento recomendado";
+        } else {
+            status = "DISPONIVEL - Sem necessidade imediata";
+        }
+
+        System.out.println();
+        System.out.println("======================================");
+        System.out.println(" RELATORIO FINAL ");
+        System.out.println("======================================");
+
+        System.out.println("Projeto: Tecnologia na Limpeza Urbana");
+        System.out.println("Desenvolvedor: Revellys dos Santos Silva");
+        System.out.println("Tecnologias Utilizadas:");
+        System.out.println("- Java");
+        System.out.println("- Oracle");
+        System.out.println("- Programacao Orientada a Objetos");
+        System.out.println("- MVC");
+        System.out.println("- Banco de Dados");
+
+        System.out.println();
+        System.out.println("DADOS DA LIXEIRA");
+        System.out.println("Localizacao: " + localizacao);
+        System.out.println("Responsavel: " + responsavel);
+        System.out.println("Data: " + data);
+        System.out.println("Rota: " + rota);
+        System.out.println("Nivel de lixo: " + nivelLixo + "%");
+        System.out.println("Status: " + status);
+
+        System.out.println();
+        System.out.println("EVENTO REGISTRADO");
+        System.out.println("Evento: " + evento);
+        System.out.println("Descricao: " + descricao);
+
+        System.out.println();
+        System.out.println("MODELO DO BANCO DE DADOS");
+
+        System.out.println("Tabela: LIXEIRA");
+        System.out.println("id");
+        System.out.println("localizacao");
+        System.out.println("nivel_lixo");
+        System.out.println("status");
+        System.out.println("responsavel_coleta");
+
+        System.out.println();
+
+        System.out.println("Tabela: EVENTO");
+        System.out.println("id");
+        System.out.println("nome");
+        System.out.println("descricao");
+        System.out.println("id_lixeira");
+
+        System.out.println();
+        System.out.println("Sistema executado com sucesso.");
+        System.out.println("Projeto concluido.");
+        System.out.println("======================================");
+
+        ler.close();
+    }
+}
+
+  
+
+
+
+-- ==========================================
+-- 
