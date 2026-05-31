@@ -1,3 +1,74 @@
+Tabela Organizada.
+
+CREATE TABLE lixeira (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    localizacao VARCHAR(100) NOT NULL,
+    nivel_lixo INT NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    responsavel_coleta VARCHAR(100) NOT NULL,
+    data_monitoramento DATETIME NOT NULL,
+    ativo TINYINT UNSIGNED NOT NULL DEFAULT '1',
+    excluido TINYINT UNSIGNED NOT NULL DEFAULT '0',
+    data_exclusao DATETIME NULL DEFAULT NULL,
+    observacao VARCHAR(240) DEFAULT NULL,
+    PRIMARY KEY (id)
+);
+
+
+tabela Evento Lixeira 
+
+INSERT INTO evento
+(nome, data_evento, descricao, id_lixeira)
+VALUES
+('Coleta Realizada',
+ NOW(),
+ 'Equipe realizou a coleta dos resíduos.',
+ 1);
+
+INSERT INTO evento
+(nome, data_evento, descricao, id_lixeira)
+VALUES
+('Lixeira Cheia',
+ NOW(),
+ 'Sensor detectou capacidade acima de 90%.',
+ 1);
+
+INSERT INTO evento
+(nome, data_evento, descricao, id_lixeira)
+VALUES
+('Manutenção Preventiva',
+ NOW(),
+ 'Verificação do sensor de monitoramento.',
+ 1);
+
+Organização 
+
+
+INSERT INTO organizacao
+(nome, data_cadastro, descricao)
+VALUES
+(
+    'EcoCidade Inteligente',
+    NOW(),
+    'Organização responsável pelo gerenciamento das lixeiras inteligentes e monitoramento urbano.'
+);
+
+evento um Registro 
+
+INSERT INTO evento
+(nome, data_cadastro, descricao)
+VALUES
+(
+    'Rota de Coleta Otimizada',
+    NOW(),
+    'Sistema definiu nova rota para reduzir o tempo de coleta dos resíduos.'
+);
+
+
+
+  Sistema Individual Pronto e Rodando
+
+
 import java.util.Scanner;
 
 public class Main {
