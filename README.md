@@ -127,7 +127,8 @@ ON e.id_lixeira = l.id;
 
 programação funcional simples e rodando.
 
-import java.util.Scanner;
+
+  import java.util.Scanner;
 
 public class Main {
 
@@ -228,8 +229,6 @@ public class Main {
         ler.close();
     }
 }
-
-  
 
 
 
