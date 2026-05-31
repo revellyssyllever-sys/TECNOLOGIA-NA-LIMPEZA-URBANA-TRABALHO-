@@ -1,68 +1,105 @@
-Tabela Organizada.
+import java.util.Scanner;
 
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner ler = new Scanner(System.in);
+
+        System.out.println("======================================");
+        System.out.println(" TECNOLOGIA NA LIMPEZA URBANA ");
+        System.out.println(" Sistema Inteligente de Monitoramento ");
+        System.out.println(" Java + POO + MVC + Oracle ");
+        System.out.println("======================================");
+
+        // Dados da Lixeira
+        System.out.print("Digite a localização da lixeira: ");
+        String localizacao = ler.nextLine();
+
+        System.out.print("Digite o responsável pela coleta: ");
+        String responsavel = ler.nextLine();
+
+        System.out.print("Digite a data do monitoramento: ");
+        String data = ler.nextLine();
+
+        System.out.print("Digite o número da rota: ");
+        int rota = ler.nextInt();
+
+        System.out.print("Digite o nível de lixo (0 a 100): ");
+        int nivelLixo = ler.nextInt();
+
+        ler.nextLine();
+
+        // Evento
+        System.out.print("Digite o nome do evento: ");
+        String evento = ler.nextLine();
+
+        System.out.print("Digite a descrição do evento: ");
+        String descricao = ler.nextLine();
+
+        // Processamento
+        String status;
+
+        if (nivelLixo >= 80) {
+            status = "CHEIA - Coleta urgente necessária";
+        } else if (nivelLixo >= 50) {
+            status = "PARCIAL - Monitoramento recomendado";
+        } else {
+            status = "DISPONÍVEL - Sem necessidade imediata";
+        }
+
+        // Relatório Final
+        System.out.println("\n======================================");
+        System.out.println(" RELATÓRIO DO SISTEMA ");
+        System.out.println("======================================");
+
+        System.out.println("Projeto: Tecnologia na Limpeza Urbana");
+        System.out.println("Tecnologias Utilizadas:");
+        System.out.println("- Java");
+        System.out.println("- Oracle JDK");
+        System.out.println("- MVC");
+        System.out.println("- Programação Orientada a Objetos");
+        System.out.println("- Banco de Dados Oracle");
+
+        System.out.println("\nDADOS DA LIXEIRA");
+        System.out.println("Localização: " + localizacao);
+        System.out.println("Responsável: " + responsavel);
+        System.out.println("Data: " + data);
+        System.out.println("Rota: " + rota);
+        System.out.println("Nível de lixo: " + nivelLixo + "%");
+        System.out.println("Status: " + status);
+
+        System.out.println("\nEVENTO REGISTRADO");
+        System.out.println("Evento: " + evento);
+        System.out.println("Descrição: " + descricao);
+
+        System.out.println("\nCONSULTA SQL UTILIZADA");
+
+        System.out.println("""
 CREATE TABLE lixeira (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    localizacao VARCHAR(100) NOT NULL,
-    nivel_lixo INT NOT NULL,
-    status VARCHAR(50) NOT NULL,
-    responsavel_coleta VARCHAR(100) NOT NULL,
-    data_monitoramento DATETIME NOT NULL,
-    ativo TINYINT UNSIGNED NOT NULL DEFAULT '1',
-    excluido TINYINT UNSIGNED NOT NULL DEFAULT '0',
-    data_exclusao DATETIME NULL DEFAULT NULL,
-    observacao VARCHAR(240) DEFAULT NULL,
-    PRIMARY KEY (id)
+ id INT PRIMARY KEY,
+ localizacao VARCHAR(100),
+ nivel_lixo INT,
+ status VARCHAR(50),
+ responsavel_coleta VARCHAR(100)
 );
+""");
 
-
-tabela Evento Lixeira 
-
-INSERT INTO evento
-(nome, data_evento, descricao, id_lixeira)
-VALUES
-('Coleta Realizada',
- NOW(),
- 'Equipe realizou a coleta dos resíduos.',
- 1);
-
-INSERT INTO evento
-(nome, data_evento, descricao, id_lixeira)
-VALUES
-('Lixeira Cheia',
- NOW(),
- 'Sensor detectou capacidade acima de 90%.',
- 1);
-
-INSERT INTO evento
-(nome, data_evento, descricao, id_lixeira)
-VALUES
-('Manutenção Preventiva',
- NOW(),
- 'Verificação do sensor de monitoramento.',
- 1);
-
-Organização 
-
-
-INSERT INTO organizacao
-(nome, data_cadastro, descricao)
-VALUES
-(
-    'EcoCidade Inteligente',
-    NOW(),
-    'Organização responsável pelo gerenciamento das lixeiras inteligentes e monitoramento urbano.'
+        System.out.println("""
+CREATE TABLE evento (
+ id INT PRIMARY KEY,
+ nome VARCHAR(100),
+ descricao VARCHAR(240),
+ id_lixeira INT
 );
+""");
 
-evento um Registro 
+        System.out.println("\nSistema finalizado com sucesso.");
+        System.out.println("======================================");
 
-INSERT INTO evento
-(nome, data_cadastro, descricao)
-VALUES
-(
-    'Rota de Coleta Otimizada',
-    NOW(),
-    'Sistema definiu nova rota para reduzir o tempo de coleta dos resíduos.'
-);
+        ler.close();
+    }
+}
 
 
 
