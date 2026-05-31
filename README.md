@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class Main {
@@ -9,99 +10,96 @@ public class Main {
         System.out.println("======================================");
         System.out.println(" TECNOLOGIA NA LIMPEZA URBANA ");
         System.out.println(" Sistema Inteligente de Monitoramento ");
-        System.out.println(" Java + POO + MVC + Oracle ");
+        System.out.println(" Java + Oracle ");
         System.out.println("======================================");
 
-        // Dados da Lixeira
-        System.out.print("Digite a localização da lixeira: ");
+        System.out.print("Digite a localizacao da lixeira: ");
         String localizacao = ler.nextLine();
 
-        System.out.print("Digite o responsável pela coleta: ");
+        System.out.print("Digite o responsavel pela coleta: ");
         String responsavel = ler.nextLine();
 
         System.out.print("Digite a data do monitoramento: ");
         String data = ler.nextLine();
 
-        System.out.print("Digite o número da rota: ");
+        System.out.print("Digite o numero da rota: ");
         int rota = ler.nextInt();
 
-        System.out.print("Digite o nível de lixo (0 a 100): ");
+        System.out.print("Digite o nivel de lixo (0 a 100): ");
         int nivelLixo = ler.nextInt();
 
         ler.nextLine();
 
-        // Evento
         System.out.print("Digite o nome do evento: ");
         String evento = ler.nextLine();
 
-        System.out.print("Digite a descrição do evento: ");
+        System.out.print("Digite a descricao do evento: ");
         String descricao = ler.nextLine();
 
-        // Processamento
         String status;
 
         if (nivelLixo >= 80) {
-            status = "CHEIA - Coleta urgente necessária";
+            status = "CHEIA - Coleta urgente necessaria";
         } else if (nivelLixo >= 50) {
             status = "PARCIAL - Monitoramento recomendado";
         } else {
-            status = "DISPONÍVEL - Sem necessidade imediata";
+            status = "DISPONIVEL - Sem necessidade imediata";
         }
 
-        // Relatório Final
-        System.out.println("\n======================================");
-        System.out.println(" RELATÓRIO DO SISTEMA ");
+        System.out.println();
+        System.out.println("======================================");
+        System.out.println(" RELATORIO FINAL ");
         System.out.println("======================================");
 
         System.out.println("Projeto: Tecnologia na Limpeza Urbana");
+        System.out.println("Desenvolvedor: Revellys dos Santos Silva");
         System.out.println("Tecnologias Utilizadas:");
         System.out.println("- Java");
-        System.out.println("- Oracle JDK");
+        System.out.println("- Oracle");
+        System.out.println("- Programacao Orientada a Objetos");
         System.out.println("- MVC");
-        System.out.println("- Programação Orientada a Objetos");
-        System.out.println("- Banco de Dados Oracle");
+        System.out.println("- Banco de Dados");
 
-        System.out.println("\nDADOS DA LIXEIRA");
-        System.out.println("Localização: " + localizacao);
-        System.out.println("Responsável: " + responsavel);
+        System.out.println();
+        System.out.println("DADOS DA LIXEIRA");
+        System.out.println("Localizacao: " + localizacao);
+        System.out.println("Responsavel: " + responsavel);
         System.out.println("Data: " + data);
         System.out.println("Rota: " + rota);
-        System.out.println("Nível de lixo: " + nivelLixo + "%");
+        System.out.println("Nivel de lixo: " + nivelLixo + "%");
         System.out.println("Status: " + status);
 
-        System.out.println("\nEVENTO REGISTRADO");
+        System.out.println();
+        System.out.println("EVENTO REGISTRADO");
         System.out.println("Evento: " + evento);
-        System.out.println("Descrição: " + descricao);
+        System.out.println("Descricao: " + descricao);
 
-        System.out.println("\nCONSULTA SQL UTILIZADA");
+        System.out.println();
+        System.out.println("MODELO DO BANCO DE DADOS");
 
-        System.out.println("""
-CREATE TABLE lixeira (
- id INT PRIMARY KEY,
- localizacao VARCHAR(100),
- nivel_lixo INT,
- status VARCHAR(50),
- responsavel_coleta VARCHAR(100)
-);
-""");
+        System.out.println("Tabela: LIXEIRA");
+        System.out.println("id");
+        System.out.println("localizacao");
+        System.out.println("nivel_lixo");
+        System.out.println("status");
+        System.out.println("responsavel_coleta");
 
-        System.out.println("""
-CREATE TABLE evento (
- id INT PRIMARY KEY,
- nome VARCHAR(100),
- descricao VARCHAR(240),
- id_lixeira INT
-);
-""");
+        System.out.println();
 
-        System.out.println("\nSistema finalizado com sucesso.");
+        System.out.println("Tabela: EVENTO");
+        System.out.println("id");
+        System.out.println("nome");
+        System.out.println("descricao");
+        System.out.println("id_lixeira");
+
+        System.out.println();
+        System.out.println("Sistema executado com sucesso.");
+        System.out.println("Projeto concluido.");
         System.out.println("======================================");
 
         ler.close();
     }
 }
-
-
 
   Sistema Individual Pronto e Rodando
 
