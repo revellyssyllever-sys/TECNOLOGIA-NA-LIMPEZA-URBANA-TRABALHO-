@@ -121,3 +121,134 @@ public class Main {
         ler.close();
     }
 }
+
+
+
+
+-- ==========================================
+-- PROJETO: TECNOLOGIA NA LIMPEZA URBANA
+-- Java + POO + MVC + Oracle Database
+-- ==========================================
+
+CREATE TABLE lixeira (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    localizacao VARCHAR(100) NOT NULL,
+    nivel_lixo INT NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    responsavel_coleta VARCHAR(100) NOT NULL,
+    data_monitoramento DATETIME NOT NULL,
+    ativo TINYINT UNSIGNED NOT NULL DEFAULT 1,
+    excluido TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    data_exclusao DATETIME NULL DEFAULT NULL,
+    observacao VARCHAR(240) DEFAULT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE evento (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    data_cadastro DATETIME NOT NULL,
+    ativo TINYINT UNSIGNED NOT NULL DEFAULT 1,
+    excluido TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    data_exclusao DATETIME NULL DEFAULT NULL,
+    descricao VARCHAR(240) DEFAULT NULL,
+    id_lixeira INT UNSIGNED DEFAULT NULL,
+
+    PRIMARY KEY (id),
+
+    KEY id_lixeira_idx (id_lixeira),
+
+    CONSTRAINT fk_evento_lixeira
+    FOREIGN KEY (id_lixeira)
+    REFERENCES lixeira (id)
+    ON DELETE SET NULL
+);
+
+-- ==========================================
+-- CADASTRO DE LIXEIRAS
+-- ==========================================
+
+INSERT INTO lixeira
+(localizacao, nivel_lixo, status, responsavel_coleta, data_monitoramento, observacao)
+VALUES
+(
+    'Centro da Cidade',
+    90,
+    'CHEIA',
+    'Revellys dos Santos Silva',
+    NOW(),
+    'Necessita coleta urgente'
+);
+
+INSERT INTO lixeira
+(localizacao, nivel_lixo, status, responsavel_coleta, data_monitoramento, observacao)
+VALUES
+(
+    'Praça Central',
+    45,
+    'DISPONIVEL',
+    'Equipe Urbana',
+    NOW(),
+    'Monitoramento normal'
+);
+
+-- ==========================================
+-- EVENTOS REGISTRADOS
+-- ==========================================
+
+INSERT INTO evento
+(nome, data_cadastro, descricao, id_lixeira)
+VALUES
+(
+    'Lixeira Cheia',
+    NOW(),
+    'Sensor detectou nivel acima de 90%',
+    1
+);
+
+INSERT INTO evento
+(nome, data_cadastro, descricao, id_lixeira)
+VALUES
+(
+    'Coleta Realizada',
+    NOW(),
+    'Equipe realizou a coleta dos residuos',
+    1
+);
+
+INSERT INTO evento
+(nome, data_cadastro, descricao, id_lixeira)
+VALUES
+(
+    'Manutencao Preventiva',
+    NOW(),
+    'Verificacao dos sensores de monitoramento',
+    2
+);
+
+INSERT INTO evento
+(nome, data_cadastro, descricao, id_lixeira)
+VALUES
+(
+    'Rota Otimizada',
+    NOW(),
+    'Sistema definiu nova rota para coleta',
+    2
+);
+
+-- ==========================================
+-- CONSULTAS
+-- ==========================================
+
+SELECT * FROM lixeira;
+
+SELECT * FROM evento;
+
+SELECT
+    e.nome AS evento,
+    e.descricao,
+    l.localizacao,
+    l.status
+FROM evento e
+LEFT JOIN lixeira l
+ON e.id_lixeira = l.id;
